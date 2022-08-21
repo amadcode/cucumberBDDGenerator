@@ -1,0 +1,184 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--	<title>Bootstrap Example</title>-->
+<!--	<meta charset="utf-8">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<!--	&lt;!&ndash;  <script src="{{ url_for('static', filename='js/index.js') }}" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--	<style>-->
+<!--	body {-->
+<!--		font-family: Arial;-->
+<!--	}-->
+<!--	/* Style the tab */-->
+
+<!--	.tab {-->
+<!--		overflow: hidden;-->
+<!--		border: 1px solid #ccc;-->
+<!--		background-color: #f1f1f1;-->
+<!--	}-->
+<!--	/* Style the buttons inside the tab */-->
+
+<!--	.tab button {-->
+<!--		background-color: inherit;-->
+<!--		float: left;-->
+<!--		border: none;-->
+<!--		outline: none;-->
+<!--		cursor: pointer;-->
+<!--		padding: 14px 16px;-->
+<!--		transition: 0.3s;-->
+<!--		font-size: 17px;-->
+<!--	}-->
+<!--	/* Change background color of buttons on hover */-->
+
+<!--	.tab button:hover {-->
+<!--		background-color: #ddd;-->
+<!--	}-->
+<!--	/* Create an active/current tablink class */-->
+
+<!--	.tab button.active {-->
+<!--		background-color: #ccc;-->
+<!--	}-->
+<!--	/* Style the tab content */-->
+
+<!--	.tabcontent {-->
+<!--		display: none;-->
+<!--		padding: 6px 12px;-->
+<!--		border: 1px solid #ccc;-->
+<!--		border-top: none;-->
+<!--	}-->
+<!--	/*.container {*/-->
+<!--	/*	  width: auto;*/-->
+<!--	/*		length: auto;*/-->
+<!--	/*	  margin: auto;*/-->
+<!--	/*	  border: 3px solid #73AD21;*/-->
+<!--	/*}*/-->
+<!--	</style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--	<div class="jumbotron text-center">-->
+<!--		<h2>Cucumber BDD/ steps generation</h2>-->
+<!--	</div>-->
+
+<!--	          <ul class="u-tab-list u-unstyled" role="tablist">-->
+<!--            <li class="u-tab-item" role="presentation">-->
+<!--              <a class="active u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">Description</a>-->
+<!--            </li>-->
+<!--            <li class="u-tab-item" role="presentation">-->
+<!--              <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-2" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="false">Specifications</a>-->
+<!--            </li>-->
+<!--            <li class="u-tab-item" role="presentation">-->
+<!--              <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-3" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">Reviews</a>-->
+<!--            </li>-->
+<!--            <li class="u-tab-item u-tab-item-4" role="presentation">-->
+<!--              <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-4" id="tab-6ff1" href="#link-tab-6ff1" role="tab" aria-controls="link-tab-6ff1" aria-selected="false">Questions</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+
+
+<!--	<div class="container-fluid">-->
+<!--		<div class="tab">-->
+<!--			<button class="tablinks" onclick="openCity(event, 'Java')">Java</button>-->
+<!--			<button class="tablinks" onclick="openCity(event, 'JavaScript')">JavaScript</button>-->
+<!--			<button class="tablinks" onclick="openCity(event, 'Python')">Python</button>-->
+<!--			<button class="tablinks" onclick="openCity(event, 'TestComplete')">TestComplete</button>-->
+<!--			&lt;!&ndash;	<div id="Java" class="tabcontent">&ndash;&gt;-->
+<!--			<div id="Java" class="tabcontent">-->
+<!--				<div class="container">-->
+<!--					&lt;!&ndash;	  <h2>Java</h2>&ndash;&gt;-->
+<!--					<div>-->
+<!--					<p>Step and core component generation for Java programming language</p>-->
+<!--					<form action="" method="POST">-->
+<!--						<div class="row">-->
+<!--							<div>-->
+<!--								<div>-->
+<!--										<div class="col-xl">-->
+<!--								<p><b>GHERKINS STEPS</b> Put your Gherkins steps below..-->
+<!--									<button><i class="fa fa-refresh"></i></button>-->
+<!--									<a href="/reset" type="button" class="btn btn-secondary btn-sm"></a>-->
+<!--									<script async src="{{ url_for('static', filename='resetTextArea.js') }}"></script>-->
+<!--									</button>-->
+<!--								</p>-->
+<!--								<div class="form-outline">-->
+<!--									<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureSteps" rows="7"> </textarea>-->
+<!--									<label class="form-label" for="featureSteps"></label>-->
+<!--								</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--							</div>-->
+<!--							</div>-->
+<!--							<div class="col-xl">-->
+<!--								<p><b>STEP DEFINITION/ PARSER</b>-->
+<!--									<button type="button" onclick="copyStepDefinition()"><i class="fa fa-copy"></i></button>-->
+<!--								</p>-->
+<!--								<div class="form-outline">-->
+<!--									<textarea value="" class="form-control" name="stepDefinition" id="stepDefinition" rows="7"></textarea>-->
+<!--									<label class="form-label" for="stepDefinition"></label>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-xl">-->
+<!--								<p><b>CORE COMPONENTS </b>-->
+<!--									&lt;!&ndash;						<button><i class="fa fa-copy"></i></button>&ndash;&gt;-->
+<!--									<button type="button" onclick="copyCoreComponent()"><i class="fa fa-copy"></i></button>-->
+<!--								</p>-->
+<!--								<div class="form-outline">-->
+<!--									<textarea value="" class="form-control" name="coreComponent" id="coreComponent" rows="7"></textarea>-->
+<!--									<label class="form-label" for="coreComponent"></label>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</form>-->
+<!--			</div>-->
+<!--			<div id="JavaScript" class="tabcontent">-->
+<!--				<h2>JavaScript</h2>-->
+<!--				<p>Step and core component generation for JavaScript programming language</p>-->
+<!--			</div>-->
+<!--			<div id="Python" class="tabcontent">-->
+<!--				<h2>Python</h2>-->
+<!--				<p>Step and core component generation for Python programming language</p>-->
+<!--			</div>-->
+<!--			<div id="TestComplete" class="tabcontent">-->
+<!--				<h2>TestComplete</h2>-->
+<!--				<p>Step and core component generation for TestComplete programming language</p>-->
+<!--			</div>-->
+<!--			<script>-->
+<!--			function openCity(evt, cityName) {-->
+<!--				let i, tabcontent, tablinks;-->
+<!--				tabcontent = document.getElementsByClassName("tabcontent");-->
+<!--				for(i = 0; i < tabcontent.length; i++) {-->
+<!--					tabcontent[i].style.display = "none";-->
+<!--				}-->
+<!--				tablinks = document.getElementsByClassName("tablinks");-->
+<!--				for(i = 0; i < tablinks.length; i++) {-->
+<!--					tablinks[i].className = tablinks[i].className.replace(" active", "");-->
+<!--				}-->
+<!--				document.getElementById(cityName).style.display = "block";-->
+<!--				evt.currentTarget.className += " active";-->
+<!--			}-->
+<!--			</script>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	</form>-->
+<!--	</div>-->
+<!--	<script async src="{{ url_for('static', filename='index.js') }}"></script>-->
+<!--	<script>-->
+<!--	function copyStepDefinition() {-->
+<!--		let textarea = document.getElementById("stepDefinition");-->
+<!--		textarea.select();-->
+<!--		document.execCommand("copy");-->
+<!--	}-->
+
+<!--	function copyCoreComponent() {-->
+<!--		let textarea = document.getElementById("coreComponent");-->
+<!--		textarea.select();-->
+<!--		document.execCommand("copy");-->
+<!--	}-->
+<!--	</script>-->
+<!--</body>-->
+
+<!--</html>-->

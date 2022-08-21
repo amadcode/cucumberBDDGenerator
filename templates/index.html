@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!--  <script src="{{ url_for('static', filename='js/index.js') }}" crossorigin="anonymous"></script>-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
+
+<body>
+	<div class="jumbotron text-center">
+		<h3>Cucumber BDD/ steps generation</h3>
+	</div>
+	<div class="container">
+		<form action="" method="POST">
+			<div class="row">
+				<div class="col-xl">
+					<p><b>GHERKINS STEPS</b> Put your Gherkins steps below..
+						<button><i class="fa fa-refresh"></i></button>
+						<a href="/reset" type="button" class="btn btn-secondary btn-sm"></a>
+<!--						<script async src="{{ url_for('static', filename='resetTextArea.js') }}"></script>-->
+						<script async src="{{ url_for('static', filename='js/resetTextArea.js') }}"></script>
+						</button>
+					</p>
+					<div class="form-outline">
+						<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureSteps" rows="7"> </textarea>
+						<label class="form-label" for="featureSteps"></label>
+					</div>
+				</div>
+				<div class="col-xl">
+					<p><b>STEP DEFINITION/ PARSER</b>
+						<button type="button" onclick="copyStepDefinition()"><i class="fa fa-copy"></i></button>
+					</p>
+					<div class="form-outline">
+						<textarea value="" class="form-control" name="stepDefinition" id="stepDefinition" rows="7"></textarea>
+						<label class="form-label" for="stepDefinition"></label>
+					</div>
+				</div>
+				<div class="col-xl">
+					<p><b>CORE COMPONENTS </b>
+<!--						<button><i class="fa fa-copy"></i></button>-->
+                        <button type="button" onclick="copyCoreComponent()"><i class="fa fa-copy"></i></button>
+					</p>
+					<div class="form-outline">
+						<textarea value="" class="form-control" name="coreComponent" id="coreComponent" rows="7"></textarea>
+						<label class="form-label" for="coreComponent"></label>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!--  <script async src="{{ url_for('static', filename='index.js') }}"></script>-->
+	<!--  <script async src="{{ url_for('static', filename='index2.js') }}"></script>-->
+	<script async src="{{ url_for('static', filename='js/index.js') }}"></script>
+<!--	<script async src="{{ url_for('static', filename='js/java/generator.js') }}"></script>-->
+	<script>
+	// function copyText(text) {
+	// 	// /* Get the text field */
+	// 	//   const copyText = document.getElementById("stepDefinition");
+	// 	//
+	// 	//   /* Select the text field */
+	// 	// copyText.select();
+	// 	// copyText.setSelectionRange(0, 99999); /* For mobile devices */
+	// 	//
+	// 	// /* Copy the text inside the text field */
+	// 	// navigator.clipboard.writeText(copyText.value);
+	// 	//
+	// 	// /* Alert the copied text */
+	// 	// alert("Copied the text: " + copyText.value);
+	// 	const textarea = document.createElement('stepDefinition');
+	// 	document.body.appendChild(textarea);
+	// 	textarea.value = text;
+	// 	textarea.select();
+	// 	textarea.setSelectionRange(0, 99999);
+	// 	document.execCommand('copy');
+	// 	document.body.removeChild(textarea);
+	// }
+    function copyStepDefinition() {
+        let textarea = document.getElementById("stepDefinition");
+        textarea.select();
+        document.execCommand("copy");
+}
+
+    function copyCoreComponent() {
+        let textarea = document.getElementById("coreComponent");
+        textarea.select();
+        document.execCommand("copy");
+}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+{% extends 'base.html' %} {% block body %}
+<header class="u-clearfix u-header u-header" id="sec-c676">
+	<div class="jumbotron text-center">
+		<h3>Cucumber BDD/ Step Generator</h3> </div>
+	<!--		<div class="u-clearfix u-sheet u-sheet-1">-->
+	<!--&lt;!&ndash;			<a href="https://nicepage.com" class="u-image u-logo u-image-1"> <img src="images/app-logo-icon.png" class="u-logo-image u-logo-image-1"> </a>&ndash;&gt;-->
+	<!--			<nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">-->
+	<!--&lt;!&ndash;				<div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">&ndash;&gt;-->
+	<!--&lt;!&ndash;					<a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">&ndash;&gt;-->
+	<!--&lt;!&ndash;						<svg class="u-svg-link" viewBox="0 0 24 24">&ndash;&gt;-->
+	<!--&lt;!&ndash;							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>&ndash;&gt;-->
+	<!--&lt;!&ndash;						</svg>&ndash;&gt;-->
+	<!--&lt;!&ndash;						<svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
+	<!--&lt;!&ndash;							<g>&ndash;&gt;-->
+	<!--&lt;!&ndash;								<rect y="1" width="16" height="2"></rect>&ndash;&gt;-->
+	<!--&lt;!&ndash;								<rect y="7" width="16" height="2"></rect>&ndash;&gt;-->
+	<!--&lt;!&ndash;								<rect y="13" width="16" height="2"></rect>&ndash;&gt;-->
+	<!--&lt;!&ndash;							</g>&ndash;&gt;-->
+	<!--&lt;!&ndash;						</svg>&ndash;&gt;-->
+	<!--&lt;!&ndash;					</a>&ndash;&gt;-->
+	<!--&lt;!&ndash;				</div>&ndash;&gt;-->
+	<!--&lt;!&ndash;				<div class="u-nav-container">&ndash;&gt;-->
+	<!--&lt;!&ndash;					<ul class="u-nav u-unstyled u-nav-1">&ndash;&gt;-->
+	<!--&lt;!&ndash;&lt;!&ndash;						<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a> </li>&ndash;&gt;&ndash;&gt;-->
+	<!--&lt;!&ndash;&lt;!&ndash;						<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a> </li>&ndash;&gt;&ndash;&gt;-->
+	<!--&lt;!&ndash;&lt;!&ndash;						<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Contact.html" style="padding: 10px 20px;">Contact</a> </li>&ndash;&gt;&ndash;&gt;-->
+	<!--&lt;!&ndash;					</ul>&ndash;&gt;-->
+	<!--&lt;!&ndash;				</div>&ndash;&gt;-->
+	<!--				<div class="u-nav-container-collapse">-->
+	<!--					<div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">-->
+	<!--						<div class="u-inner-container-layout u-sidenav-overflow">-->
+	<!--							<div class="u-menu-close"></div>-->
+	<!--							<ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">-->
+	<!--								<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a> </li>-->
+	<!--								<li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a> </li>-->
+	<!--								<li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact</a> </li>-->
+	<!--							</ul>-->
+	<!--						</div>-->
+	<!--					</div>-->
+	<!--					<div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>-->
+	<!--				</div>-->
+	<!--			</nav>-->
+	<!--		</div>-->
+</header>
+<section class="u-align-center u-clearfix u-section-2" id="carousel_bfba">
+	<div class="u-clearfix u-sheet u-sheet-1">
+		<div class="u-tab-links-align-justify u-tabs u-tabs-1">
+			<!--				<ul class="u-tab-list u-unstyled" role="tablist">-->
+			<!--					<li class="u-tab-item" role="presentation">-->
+			<!--&lt;!&ndash;                        <a class="active u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">Java</a> </li>&ndash;&gt;-->
+			<!--                        <a class="active u-active-palette-2-base u-button-style u-tab-link u-tab-link-1" id="link-tab-java" href="#tab-java" role="tab" aria-controls="tab-java" aria-selected="true">Java</a>-->
+			<!--					<li class="u-tab-item" role="presentation">-->
+			<!--&lt;!&ndash;                        <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-2" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="false">Specifications</a> </li>&ndash;&gt;-->
+			<!--                        <a class="active u-active-palette-2-base u-button-style u-tab-link u-tab-link-1" id="link-tab-javascript" href="#tab-javascript" role="tab" aria-controls="tab-javascript" aria-selected="false">JavaScript/ Cypress.io</a>-->
+			<!--					<li class="u-tab-item" role="presentation">-->
+			<!--                        <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-3" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">Reviews</a> </li>-->
+			<!--					<li class="u-tab-item u-tab-item-4" role="presentation">-->
+			<!--                        <a class="u-active-white u-border-6 u-border-active-palette-1-base u-border-grey-15 u-border-hover-grey-15 u-border-no-bottom u-border-no-left u-border-no-right u-button-style u-grey-10 u-hover-grey-10 u-tab-link u-tab-link-4" id="tab-6ff1" href="#link-tab-6ff1" role="tab" aria-controls="link-tab-6ff1" aria-selected="false">Questions</a> </li>-->
+			<!--				</ul>-->
+			<ul class="u-spacing-30 u-tab-list u-unstyled" role="tablist">
+				<li class="u-tab-item" role="presentation"> <a class="active u-active-palette-2-base u-button-style u-tab-link u-tab-link-1" id="link-tab-java" href="#tab-java" role="tab" aria-controls="tab-java" aria-selected="true">Java</a> </li>
+				<li class="u-tab-item" role="presentation"> <a class="u-active-palette-2-base u-button-style u-tab-link u-tab-link-2" id="link-tab-javaScript" href="#tab-javaScript" role="tab" aria-controls="tab-javaScript" aria-selected="false">cypress.io</a> </li>
+				<li class="u-tab-item" role="presentation"> <a class="u-active-palette-2-base u-button-style u-tab-link u-tab-link-3" id="link-tab-python" href="#tab-python" role="tab" aria-controls="tab-python" aria-selected="false">Python</a> </li>
+			</ul>
+			<div class="u-tab-content">
+				<div class="u-container-style u-tab-active u-tab-pane" id="tab-java" role="tabpanel" aria-labelledby="link-tab-081f">
+					<div class="container">
+						<form action="" method="POST">
+							<div class="row">
+								<div class="col-xl">
+									<p><b>GHERKINS STEPS</b>
+										<button>Reset <i class="fa fa-refresh"></i></button>
+										<a href="/reset" type="button" class="btn btn-secondary btn-sm"></a>
+										<!--											<script async src="{{ url_for('static', filename='resetTextArea.js') }}"></script>-->
+										<script async src="{{ url_for('static', filename='js/resetTextArea.js') }}"></script>
+										</button>
+									</p>
+									<div class="form-outline" max-width="600px">
+										<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureSteps" rows="5" cols="135" placeholder="Put your steps here.."> </textarea>
+										<label class="form-label" for="featureSteps"></label>
+									</div>
+								</div>
+								<div class="col-xl">
+									<p><b>STEP DEFINITION/ PARSER</b>
+										<button type="button" onclick="copyStepDefinition()">Copy <i class="fa fa-copy"></i></button>
+									</p>
+									<div class="form-outline">
+										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinition" rows="5" cols="135"></textarea>
+										<label class="form-label" for="stepDefinition"></label>
+									</div>
+								</div>
+								<div class="col-xl">
+									<p><b>CORE COMPONENTS </b>
+										<!--						<button><i class="fa fa-copy"></i></button>-->
+										<button type="button" onclick="copyCoreComponent()">Copy <i class="fa fa-copy"></i></button>
+									</p>
+									<div class="form-outline">
+										<textarea value="" class="form-control" name="coreComponent" id="coreComponent" rows="5" cols="135"></textarea>
+										<label class="form-label" for="coreComponent"></label>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+<!--				<div class="u-container-style u-tab-pane" id="tab-javaScript" role="tabpanel" aria-labelledby="link-tab-javaScript">-->
+<!--					<div class="u-container-layout u-container-layout-2">-->
+<!--						<h4 class="u-text u-text-default u-text-5">This page is under construction</h4>-->
+<!--						&lt;!&ndash;							<p class="u-text u-text-default u-text-6">In this article we will cover the BASICS of Who is Who and what role they play in the South African Container Shipping industry..</p>&ndash;&gt;-->
+<!--						&lt;!&ndash;							<ul class="u-text u-text-default u-text-7">&ndash;&gt;-->
+<!--						&lt;!&ndash;								<li>Transnet Freight Rail (formerly known as Spoornet) </li>&ndash;&gt;-->
+<!--						&lt;!&ndash;								<li>Transnet National Port Authority (formerly known as NPA) </li>&ndash;&gt;-->
+<!--						&lt;!&ndash;								<li>Transnet Port Terminals (formerly known as Portnet, SAPO)</li>&ndash;&gt;-->
+<!--						&lt;!&ndash;							</ul>&ndash;&gt;-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="u-container-style u-tab-pane" id="tab-3a42" role="tabpanel" aria-labelledby="link-tab-3a42">-->
+<!--					<div class="u-container-layout u-container-layout-3"></div>-->
+<!--				</div>-->
+<!--				<div class="u-container-style u-tab-pane" id="link-tab-d7e7" role="tabpanel" aria-labelledby="tab-d7e7">-->
+<!--					<div class="u-container-layout u-container-layout-4"></div>-->
+<!--				</div>-->
+<!--				<div class="u-container-style u-tab-pane" id="link-tab-6219" role="tabpanel" aria-labelledby="tab-6219">-->
+<!--					<div class="u-container-layout u-container-layout-5"></div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">-->
+<!--				<div class="u-container-layout u-container-layout-2"></div>-->
+<!--			</div>-->
+<!--			<div class="u-container-style u-tab-pane u-white u-tab-pane-3" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">-->
+<!--				<div class="u-container-layout u-container-layout-3"></div>-->
+<!--			</div>-->
+<!--			<div class="u-container-style u-tab-pane u-white u-tab-pane-4" id="link-tab-6ff1" role="tabpanel" aria-labelledby="tab-6ff1">-->
+<!--				<div class="u-container-layout u-container-layout-4"></div>-->
+<!--			</div>-->
+		</div>
+	</div>
+<!--	<script async src="{{ url_for('static', filename='js/index.js') }}"></script>-->
+	<script async src="{{ url_for('static', filename='js/java/generator.js') }}"></script>
+	<script>
+	function copyStepDefinition() {
+		let textarea = document.getElementById("stepDefinition");
+		textarea.select();
+		document.execCommand("copy");
+	}
+
+	function copyCoreComponent() {
+		let textarea = document.getElementById("coreComponent");
+		textarea.select();
+		document.execCommand("copy");
+	}
+	</script>
+</section> {% endblock body %}
