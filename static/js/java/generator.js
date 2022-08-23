@@ -143,6 +143,8 @@ function methodNameGeneratorInnerBodyOfStepDefinition(array) {
                                         + closingParenthesis
                                         +"\n";
 
+    console.log(`underscoredArray: ${underscoredArray}`)
+
     return underscoredArray
 }
 
@@ -202,6 +204,8 @@ function methodGeneratorInnerStepDefinitionBody_ThirdLayer(array, noOfDynamicVal
                             + closingBracket
                             + terminator
                             + "\n"
+
+    console.log(`methodInnerBlock: ${methodInnerBlock}`)
     return methodInnerBlock
 }
 
