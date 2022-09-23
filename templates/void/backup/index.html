@@ -58,6 +58,27 @@
 	<script async src="{{ url_for('static', filename='js/index.js') }}"></script>
 <!--	<script async src="{{ url_for('static', filename='js/java/generator.js') }}"></script>-->
 	<script>
+	// function copyText(text) {
+	// 	// /* Get the text field */
+	// 	//   const copyText = document.getElementById("stepDefinition");
+	// 	//
+	// 	//   /* Select the text field */
+	// 	// copyText.select();
+	// 	// copyText.setSelectionRange(0, 99999); /* For mobile devices */
+	// 	//
+	// 	// /* Copy the text inside the text field */
+	// 	// navigator.clipboard.writeText(copyText.value);
+	// 	//
+	// 	// /* Alert the copied text */
+	// 	// alert("Copied the text: " + copyText.value);
+	// 	const textarea = document.createElement('stepDefinition');
+	// 	document.body.appendChild(textarea);
+	// 	textarea.value = text;
+	// 	textarea.select();
+	// 	textarea.setSelectionRange(0, 99999);
+	// 	document.execCommand('copy');
+	// 	document.body.removeChild(textarea);
+	// }
     function copyStepDefinition() {
         let textarea = document.getElementById("stepDefinition");
         textarea.select();

@@ -1,0 +1,54 @@
+{
+    "openingBracket": "(",
+    "sc_doubleColons": "\"",
+    "sc_comma": ",",
+    "sc_openingBracket": "(",
+    "sc_closingBracket": ")",
+    "sc_space": " ",
+    "sc_equalSign": "=",
+    "sc_greaterThanSign": ">",
+    "dynamicValJS": "args",
+    "java": [
+                {
+                    "underscoredArray": "",
+                    "methodInnerBlock": "",
+                    "array": "",
+                    "openingBracket": "(",
+                    "closingBracket": ")",
+                    "openingParenthesis": "{",
+                    "closingParenthesis": "}",
+                    "brackets": "()",
+                    "terminator": ";",
+                    "atTheRate": "@",
+                    "javaMethodConvention": "public void ",
+                    "dynamicValue_": "_args_",
+                    "dynamicValue": "args",
+                    "argumentSeries": "",
+                    "writeImplementationHere": "// write implementation here",
+                    "throwsThrowable": " throws Throwable",
+                    "dynamicValueCount": ""
+                }
+            ],
+    "python":
+            [
+                {
+                    "underscoredArray": "",
+                    "methodInnerBlock": "",
+                    "array": "",
+                    "openingBracket": "(",
+                    "closingBracket": ")",
+                    "openingParenthesis": "{",
+                    "closingParenthesis": "}",
+                    "brackets": "()",
+                    "terminator": ";",
+                    "atTheRate": "@",
+                    "javaMethodConvention": "public void ",
+                    "dynamicValue_": "_args_",
+                    "dynamicValue": "args",
+                    "argumentSeries": "",
+                    "writeImplementationHere": "// write implementation here",
+                    "throwsThrowable": " throws Throwable",
+                    "dynamicValueCount": ""
+                }
+            ]
+}

@@ -29,14 +29,22 @@ def reset_page():
     # return render_template('index4.html')
 
 
+# @app.route('/resetJS')
+# def reset_page_js():
+#     print('inside reset page method - javaScript')
+#     return render_template()
+
+
 def generate_core_components():
     print('inside core components')
     return render_template('index4.html')
+    # return render_template('index.html')
 
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('index4.html')
+    # return render_template('index.html')
 
 
 if __name__ == "__main__":
