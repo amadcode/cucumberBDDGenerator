@@ -37,7 +37,6 @@ featureStepsJS.addEventListener("keyup", event => {
     console.log("inside featureStepsJS")
     localStorage.setItem("featureStepsJS", event.target.value)
     stepDefinitionJS.value = section11JSNew()
-    // coreComponentJS.value = section3JS()
     coreComponentJS.value = section33JS()
 });
 
