@@ -29,10 +29,10 @@ def reset_page():
     # return render_template('index4.html')
 
 
-# @app.route('/resetJS')
-# def reset_page_js():
-#     print('inside reset page method - javaScript')
-#     return render_template()
+@app.route('/resetJS')
+def reset_page_js():
+    print('inside reset_page method')
+    return render_template('index4.html')
 
 
 def generate_core_components():
