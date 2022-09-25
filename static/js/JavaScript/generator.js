@@ -20,7 +20,7 @@ let dynamicValueJS = "args";
 let dynamicValueJS_ = "_args_";
 let CAMEL_CASED_STEP = "";
 
-
+/*
 if (localStorage.getItem("classReferenceJavaScript") == "") {
     classReferenceJavaScript.value = localStorage.setItem("classReferenceJavaScript", "// ")
 } else {
@@ -31,7 +31,11 @@ if (localStorage.getItem("featureStepsJS") == "") {
     featureStepsJS.value = ""
 } else {
     featureStepsJS.value = localStorage.getItem("featureStepsJS")
-}
+}*/
+
+classReferenceJavaScript.value = localStorage.setItem("classReferenceJavaScript", "// ")
+classReferenceJavaScript.value = localStorage.getItem("classReferenceJavaScript")
+featureStepsJS.value = localStorage.getItem("featureStepsJS")
 
 featureStepsJS.addEventListener("keyup", event => {
     console.log("inside featureStepsJS")
