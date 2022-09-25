@@ -36,10 +36,8 @@ if (localStorage.getItem("featureStepsJS") == "") {
 featureStepsJS.addEventListener("keyup", event => {
     console.log("inside featureStepsJS")
     localStorage.setItem("featureStepsJS", event.target.value)
-    // stepDefinitionJS.value = this.generateStepDefinitionJSTemplate()
-    stepDefinitionJS.value = section1JS()
-    coreComponentJS.value = section3JS()
-    gArgsJS()
+    stepDefinitionJS.value = section11JSNew()
+    coreComponentJS.value = section33JS()
 });
 
 classReferenceJavaScript.addEventListener("keyup", event => {
@@ -48,44 +46,24 @@ classReferenceJavaScript.addEventListener("keyup", event => {
     writeImplementationHere.value = localStorage.getItem("classReferenceJavaScript")
 })
 
-/*
- * Reference: First layer ->
- * general: public void this_is_the_first_layer
- * example: i_am_at_the_application_portal
- */
-
-function section1JS() {
+function section11JSNew() {
     let array = localStorage.getItem("featureStepsJS")
                 .trim()
                 .replace("/", "")
                 .replace("-", "")
                 .split('\n')
-
-    let toCalDV = localStorage.getItem("featureStepsJS")
-    let noOfDynamicValues = 0
-    for (let i = 0; i < toCalDV.length; i++) {
-        if ((array[i] == "\"") || array[i] == "\'") {
-            noOfDynamicValues = noOfDynamicValues + 1
-            DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-        }
-    }
-
-    console.log(`HERE DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
-
     for (let i = 0; i < array.length; i++) {
+        DYNAMIC_VALUE_JAVASCRIPT = 0
         const keyword = array[i].split(/\s+/);
         const step = [keyword.shift(), keyword.join(' ')];
         const stepWithoutSpecialChars = step[1]
                                         .trimStart()
                                         .replace(/'([^']+)'/g, '(.+)')
                                         .replace(/"([^"]+)"/g, '\\"(.*?)\\"');
-
+        DYNAMIC_VALUE_JAVASCRIPT = getNoOfDV(array[i])
         GLOBAL_ARRAY = stepWithoutSpecialChars;
         CAMEL_CASED_STEP = camelize(stepWithoutSpecialChars)
-
-        console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
+        let dv = getNoOfDV(array[i])
         array[i] =
                 step[0]
                 + openingBracket
@@ -94,92 +72,90 @@ function section1JS() {
                 + sc_doubleColons
                 + sc_comma
                 + sc_openingBracket
-                + generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
-                // + genrateArgsJS()
+                + generateArgumentsJSNew(getNoOfDV(array[i]))
                 + sc_closingBracket + sc_space
                 + sc_equalSign + sc_greaterThanSign
                 + sc_openingCurlyParenthesis + sc_space
                 + "\n\t"
                 + classReferenceJavaScript.value
-                + section2JS()
+                + section22JS(dv)
                 + "\n"
                 + sc_closingCurlyParenthesis + sc_closingBracket
                 + "\n"
+        console.log(`generated array${[i]}: ${array[i]}`)
         }
     return array.join("\n")
 }
 
-
-function section2JS() {
-    // console.log(`CAMEL_CASED_STEP: ${CAMEL_CASED_STEP}`)
-    // console.log(`GLOBAL_ARRAY: ${GLOBAL_ARRAY}`)
-    // console.log(`arrayForInnerMethod: ${arrayForInnerMethod}`)
-    arrayForInnerMethod = GLOBAL_ARRAY
-    let val = camelize(arrayForInnerMethod);
-
-    for (let i = 0; i < val.length; i++) {
-    val = val.replaceAll(" ", "")
-                                                .replace('(.+)', dynamicValueJS_)
-                                                .replace('\\"(.*?)\\"', dynamicValueJS_)
-    }
-
-
-    let toCalDV = localStorage.getItem("featureStepsJS")
-    let noOfDynamicValues = 0
-    for (let i = 0; i < toCalDV.length; i++) {
-        if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
-            noOfDynamicValues = noOfDynamicValues + 1
-            DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-        }
-    }
-
-    let arguments = generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
-
-    // console.log(`camelize: ${val}`)
-    // console.log(`DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-    arrayForInnerMethod = val + sc_openingBracket + arguments + sc_closingBracket
-    // console.log(`underscoredArray: ${arrayForInnerMethod}`)
-    return arrayForInnerMethod
-}
-
-function section3JS() {
-    let array = localStorage.getItem("featureStepsJS")
-                .trim()
-                .replace("/", "")
-                .replace("-", "")
-                .split('\n')
-
-    let toCalDV = localStorage.getItem("featureStepsJS")
-    let noOfDynamicValues = 0
-    for (let i = 0; i < toCalDV.length; i++) {
-        if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
-            noOfDynamicValues = noOfDynamicValues + 1
-            DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-        }
-    }
-
-    console.log(`HERE DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
+function getNoOfDV(array) {
+    let toCalDV = localStorage.getItem("featureStepsJS").replaceAll(" ", "")
+        .replace('(.+)', dynamicValueJS_)
+        .replace('\\"(.*?)\\"', dynamicValueJS_)
 
     for (let i = 0; i < array.length; i++) {
-        const keyword = array[i].split(/\s+/);
-        const step = [keyword.shift(), keyword.join(' ')];
+        let noOfDynamicValues = 0
+        for (let i = 0; i < toCalDV.length; i++) {
+            if ((array[i] == "\"") || array[i] == "\'") {
+                noOfDynamicValues = noOfDynamicValues + 1
+                DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
+            }
+        }
+        return DYNAMIC_VALUE_JAVASCRIPT
+     }
+}
 
-        step[1] = camelize(step[1])
-        const stepWithoutSpecialChars =     step[1].trimStart().replaceAll(" ", "")
-                                                .replace('(.+)', dynamicValueJS_)
-                                                .replace('\\"(.*?)\\"', dynamicValueJS_)
-                                                .replace(/'([^']+)'/g, dynamicValueJS_)
-                                                .replace(/"([^"]+)"/g, dynamicValueJS_);
-        GLOBAL_ARRAY = stepWithoutSpecialChars;
-        CAMEL_CASED_STEP = camelize(GLOBAL_ARRAY)
+    function section22JS(DYNAMIC_VALUE_JAVASCRIPT) {
+                arrayForInnerMethod = GLOBAL_ARRAY
+        let val = camelize(arrayForInnerMethod);
 
-        console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+        for (let i = 0; i < val.length; i++) {
+            val = val.replaceAll(" ", "")
+                .replace('(.+)', dynamicValueJS_)
+                .replace('\\"(.*?)\\"', dynamicValueJS_)
+        }
+        let arguments = generateArgumentsJSNew(DYNAMIC_VALUE_JAVASCRIPT)
+        arrayForInnerMethod = val + sc_openingBracket + arguments + sc_closingBracket
+        return arrayForInnerMethod
+    }
 
-        array[i] =
+    function section3JS() {
+        let array = localStorage.getItem("featureStepsJS")
+            .trim()
+            .replace("/", "")
+            .replace("-", "")
+            .split('\n')
+
+        let toCalDV = localStorage.getItem("featureStepsJS")
+        let noOfDynamicValues = 0
+        for (let i = 0; i < toCalDV.length; i++) {
+            if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
+                noOfDynamicValues = noOfDynamicValues + 1
+                DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
+            }
+        }
+
+        console.log(`HERE DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+
+
+        for (let i = 0; i < array.length; i++) {
+            const keyword = array[i].split(/\s+/);
+            const step = [keyword.shift(), keyword.join(' ')];
+
+            step[1] = camelize(step[1])
+            const stepWithoutSpecialChars = step[1].trimStart().replaceAll(" ", "")
+                .replace('(.+)', dynamicValueJS_)
+                .replace('\\"(.*?)\\"', dynamicValueJS_)
+                .replace(/'([^']+)'/g, dynamicValueJS_)
+                .replace(/"([^"]+)"/g, dynamicValueJS_);
+            GLOBAL_ARRAY = stepWithoutSpecialChars;
+            CAMEL_CASED_STEP = camelize(GLOBAL_ARRAY)
+
+            console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+
+            array[i] =
                 CAMEL_CASED_STEP
                 + sc_openingBracket
-                + generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
+                + generateArgumentsJSNew(DYNAMIC_VALUE_JAVASCRIPT)
                 // + genrateArgsJS()
                 + sc_closingBracket + sc_space
                 + sc_openingCurlyParenthesis + sc_space
@@ -189,90 +165,84 @@ function section3JS() {
                 + sc_closingCurlyParenthesis
                 + "\n"
         }
-    return array.join("\n")
-}
-
-function genrateArgsJS() {
-    let string = ""
-    let noOfDynamicValues = 0
-    let arrayWhichCanContainDynamicValues = localStorage.getItem("featureStepsJS")
-                .trim()
-                .replace("/", "")
-                .replace("-", "")
-                .split('\n')
-    let toCalDV = localStorage.getItem("featureStepsJS")
-    for (let i = 0; i < arrayWhichCanContainDynamicValues.length; i++) {
-        if ((arrayWhichCanContainDynamicValues[i] == "\"") || arrayWhichCanContainDynamicValues[i] == "\'") {
-            noOfDynamicValues = noOfDynamicValues + 1
-            DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-        }
+        return array.join("\n")
     }
 
-    if (DYNAMIC_VALUE_JAVASCRIPT == 0) {
-        arguments = null
+    function section33JS() {
+        let array = localStorage.getItem("featureStepsJS")
+            .trim()
+            .replace("/", "")
+            .replace("-", "")
+            .split('\n')
+
+        let toCalDV = localStorage.getItem("featureStepsJS")
+        let noOfDynamicValues = 0
+        for (let i = 0; i < toCalDV.length; i++) {
+            if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
+                noOfDynamicValues = noOfDynamicValues + 1
+                DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
+            }
+        }
+
+        console.log(`HERE DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+
+
+        for (let i = 0; i < array.length; i++) {
+            DYNAMIC_VALUE_JAVASCRIPT = 0
+            const keyword = array[i].split(/\s+/);
+            const step = [keyword.shift(), keyword.join(' ')];
+
+            step[1] = camelize(step[1])
+            const stepWithoutSpecialChars = step[1].trimStart().replaceAll(" ", "")
+                .replace('(.+)', dynamicValueJS_)
+                .replace('\\"(.*?)\\"', dynamicValueJS_)
+                .replace(/'([^']+)'/g, dynamicValueJS_)
+                .replace(/"([^"]+)"/g, dynamicValueJS_);
+            GLOBAL_ARRAY = stepWithoutSpecialChars;
+            CAMEL_CASED_STEP = camelize(GLOBAL_ARRAY)
+
+            console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+            DYNAMIC_VALUE_JAVASCRIPT = getNoOfDV(array[i])
+            array[i] =
+                CAMEL_CASED_STEP
+                + sc_openingBracket
+                + generateArgumentsJSNew(DYNAMIC_VALUE_JAVASCRIPT)
+                // + genrateArgsJS()
+                + sc_closingBracket + sc_space
+                + sc_openingCurlyParenthesis + sc_space
+                + "\n"
+                + "\t" + writeImplementationHere
+                + "\n"
+                + sc_closingCurlyParenthesis
+                + "\n"
+        }
+        return array.join("\n")
     }
-    else if (DYNAMIC_VALUE_JAVASCRIPT === 2) {
-        DYNAMIC_VALUE_JAVASCRIPT = 1;
-        for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
-            if (i == DYNAMIC_VALUE_JAVASCRIPT) {
-                string = string.concat(dynamicValJS + i, "")
-            } else {
-                string = string.concat(dynamicValJS + i, ", ")
+
+    function generateArgumentsJSNew(DYNAMIC_VALUE_JAVASCRIPT) {
+         console.log(`noOfDynamicValuesJS when this is called: ${DYNAMIC_VALUE_JAVASCRIPT}`)
+        let string = ""
+        let noValue = ""
+        if (DYNAMIC_VALUE_JAVASCRIPT === 0) {
+            string = noValue
+        } else if (DYNAMIC_VALUE_JAVASCRIPT === 2) {
+            DYNAMIC_VALUE_JAVASCRIPT = 1;
+            for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
+                if (i == DYNAMIC_VALUE_JAVASCRIPT) {
+                    string = string.concat(dynamicValJS + i, "")
+                } else {
+                    string = string.concat(dynamicValJS + i, ", ")
+                }
+            }
+        } else if (DYNAMIC_VALUE_JAVASCRIPT % 2 === 0) {
+            DYNAMIC_VALUE_JAVASCRIPT = DYNAMIC_VALUE_JAVASCRIPT / 2;
+            for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
+                if (i == DYNAMIC_VALUE_JAVASCRIPT) {
+                    string = string.concat(dynamicValJS + i, "")
+                } else {
+                    string = string.concat(dynamicValJS + i, ", ")
+                }
             }
         }
-    } else if (DYNAMIC_VALUE_JAVASCRIPT % 2 === 0) {
-        DYNAMIC_VALUE_JAVASCRIPT = DYNAMIC_VALUE_JAVASCRIPT / 2;
-        for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
-            if (i == DYNAMIC_VALUE_JAVASCRIPT) {
-                string = string.concat(dynamicValJS + i, "")
-            } else {
-                string = string.concat(dynamicValJS + i, ", ")
-            }
-        }
+        return string
     }
-    return string
-}
-
-
-function gArgsJS() {
-    let arrayWhichCanContainDynamicValues = localStorage.getItem("featureStepsJS").split(/\s+/);
-    let arrayWithoutKeyword = [arrayWhichCanContainDynamicValues.shift(), arrayWhichCanContainDynamicValues.join(' ')];
-        const stepWithoutSpecialChars = arrayWithoutKeyword[1]
-                                        .trimStart()
-                                        .replace(/'([^']+)'/g, '(.+)')
-                                        .replace(/"([^"]+)"/g, '\\"(.*?)\\"');
-
-    console.log(`stepWithoutSpecialChars: ${stepWithoutSpecialChars}`)
-
-}
-
-
-function generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT) {
-
-    console.log(`noOfDynamicValuesJS when this is called: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
-    let string = ""
-    let noValue = ""
-    if (DYNAMIC_VALUE_JAVASCRIPT === 0) {
-        string = noValue
-    } else if (DYNAMIC_VALUE_JAVASCRIPT === 2) {
-        DYNAMIC_VALUE_JAVASCRIPT = 1;
-        for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
-            if (i == DYNAMIC_VALUE_JAVASCRIPT) {
-                string = string.concat(dynamicValJS + i, "")
-            } else {
-                string = string.concat(dynamicValJS + i, ", ")
-            }
-        }
-    } else if (DYNAMIC_VALUE_JAVASCRIPT % 2 === 0) {
-        DYNAMIC_VALUE_JAVASCRIPT = DYNAMIC_VALUE_JAVASCRIPT / 2;
-        for (let i = 1; i <= DYNAMIC_VALUE_JAVASCRIPT; i++) {
-            if (i == DYNAMIC_VALUE_JAVASCRIPT) {
-                string = string.concat(dynamicValJS + i, "")
-            } else {
-                string = string.concat(dynamicValJS + i, ", ")
-            }
-        }
-    }
-    return string
-}
