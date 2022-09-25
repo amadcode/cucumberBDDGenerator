@@ -1,4 +1,3 @@
-// import keywords from "../java/keywords.json";
 let featureSteps = document.querySelector("#featureSteps")
 let stepDefinition = document.querySelector("#stepDefinition")
 let coreComponent = document.querySelector("#coreComponent")
