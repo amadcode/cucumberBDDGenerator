@@ -39,7 +39,7 @@ featureStepsJS.addEventListener("keyup", event => {
     // stepDefinitionJS.value = this.generateStepDefinitionJSTemplate()
     stepDefinitionJS.value = section1JS()
     coreComponentJS.value = section3JS()
-    gArgsJS()
+    // gArgsJS()
 });
 
 classReferenceJavaScript.addEventListener("keyup", event => {
