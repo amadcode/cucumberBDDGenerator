@@ -230,6 +230,7 @@ function genrateArgsJS() {
             }
         }
     }
+    string.body.style.color = 'darkgreen'
     return string
 }
 

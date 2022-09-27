@@ -26,11 +26,11 @@
 										<a href="/reset" type="button" class="btn btn-secondary btn-sm"></a>
 										<script async src="{{ url_for('static', filename='js/resetTextArea.js') }}"></script>
 										</button>
-										Put class reference here <input value=" "  name="classReferenceJava" id="classReferenceJava" placeholder="Class reference here.."></input>
+										Put class reference here <input value=" "  name="classReferenceJava" id="classReferenceJava" placeholder="Class reference here.." style="border:solid 2px darkred;"></input>
 										<label class="form-label" for="classReferenceJava"></label>
 									</p>
 									<div class="form-outline" max-width="600px">
-										<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureSteps" rows="5" cols="135" placeholder="Put your steps here.."> </textarea>
+										<textarea value="" class="form-control" name="featureSteps" id="featureSteps" rows="5" cols="135" placeholder="Put your steps here.." style="border:solid 2px darkred";> </textarea>
 										<label class="form-label" for="featureSteps"></label>
 									</div>
 								</div>
@@ -39,7 +39,7 @@
 										<button type="button" onclick="copyStepDefinition()">Copy <i class="fa fa-copy"></i></button>
 									</p>
 									<div class="form-outline">
-										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinition" rows="7" cols="135"></textarea>
+										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinition" rows="7" cols="135" style="border:solid 2px darkred;"></textarea>
 										<label class="form-label" for="stepDefinition"></label>
 									</div>
 								</div>
@@ -48,7 +48,7 @@
 										<button type="button" onclick="copyCoreComponent()">Copy <i class="fa fa-copy"></i></button>
 									</p>
 									<div class="form-outline">
-										<textarea value="" class="form-control" name="coreComponent" id="coreComponent" rows="7" cols="135"></textarea>
+										<textarea value="" class="form-control" name="coreComponent" id="coreComponent" rows="7" cols="135" style="border:solid 2px darkred;"></textarea>
 										<label class="form-label" for="coreComponent"></label>
 									</div>
 								</div>
@@ -70,11 +70,11 @@
 										<a href="/resetJS" type="button" class="btn btn-secondary btn-sm"></a>
 										<script async src="{{ url_for('static', filename='js/resetTextAreaJavaScript.js') }}"></script>
 										</button>
-										Put class reference here <input value=" "  name="classReferenceJava" id="classReferenceJavaScript" placeholder="Class reference here.."></input>
+										Put class reference here <input value=" "  name="classReferenceJava" id="classReferenceJavaScript" placeholder="Class reference here.." style="border:solid 2px dodgerblue;"></input>
 										<label class="form-label" for="classReferenceJava"></label>
 									</p>
 									<div class="form-outline" max-width="600px">
-										<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureStepsJS" rows="5" cols="135" placeholder="Put your steps here.."> </textarea>
+										<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureStepsJS" rows="5" cols="135" placeholder="Put your steps here.." style="border:solid 2px dodgerblue;"> </textarea>
 										<label class="form-label" for="featureSteps"></label>
 									</div>
 								</div>
@@ -83,7 +83,7 @@
 										<button type="button" onclick="copyStepDefinitionJS()">Copy <i class="fa fa-copy"></i></button>
 									</p>
 									<div class="form-outline">
-										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinitionJS" rows="7" cols="135"></textarea>
+										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinitionJS" rows="7" cols="135" style="border:solid 2px dodgerblue;"></textarea>
 										<label class="form-label" for="stepDefinition"></label>
 									</div>
 								</div>
@@ -92,7 +92,7 @@
 										<button type="button" onclick="copyCoreComponentJS()">Copy <i class="fa fa-copy"></i></button>
 									</p>
 									<div class="form-outline">
-										<textarea value="" class="form-control" name="coreComponent" id="coreComponentJS" rows="7" cols="135"></textarea>
+										<textarea value="" class="form-control" name="coreComponent" id="coreComponentJS" rows="7" cols="135" style="border:solid 2px dodgerblue;"></textarea>
 										<label class="form-label" for="coreComponent"></label>
 									</div>
 								</div>
@@ -101,11 +101,58 @@
 					</div>
 					</div>
 				</div>
+			<!---------------------------------------------------------------------------------------------------------------------------------->
+			<!-------------------------------------------------Working for PYTHON---------------------------------------------------------->
+			<!---------------------------------------------------------------------------------------------------------------------------------->
+				<div class="u-container-style u-tab-pane" id="tab-python" role="tabpanel" aria-labelledby="link-tab-python">
+					<div class="u-container-layout u-container-layout-2">
+						<div class="container">
+						<form action="" method="POST">
+							<div class="row">
+								<div class="col-xl">
+									<p><b>GHERKINS STEPS</b>
+										<button>Reset <i class="fa fa-refresh"></i></button>
+										<a href="/resetPy" type="button" class="btn btn-secondary btn-sm"></a>
+										<script async src="{{ url_for('static', filename='js/resetTextAreaJavaPython.js') }}"></script>
+										</button>
+										Put class reference here <input value=" "  name="classReferencePython" id="classReferencePython" placeholder="Class reference here.." style="border:solid 2px green;"></input>
+										<label class="form-label" for="classReferencePython"></label>
+									</p>
+									<div class="form-outline" max-width="600px">
+										<textarea value="" class="form-control" class="form-control" name="featureSteps" id="featureStepsPy" rows="5" cols="135" placeholder="Put your steps here.." style="border:solid 2px green;"> </textarea>
+										<label class="form-label" for="featureSteps"></label>
+									</div>
+								</div>
+								<div class="col-xl">
+									<p><b>STEP DEFINITION/ PARSER</b>
+										<button type="button" onclick="copyStepDefinitionPy()">Copy <i class="fa fa-copy"></i></button>
+									</p>
+									<div class="form-outline">
+										<textarea value="" class="form-control" name="stepDefinition" id="stepDefinitionPy" rows="7" cols="135" style="border:solid 2px green;"></textarea>
+										<label class="form-label" for="stepDefinition"></label>
+									</div>
+								</div>
+								<div class="col-xl">
+									<p><b>CORE COMPONENTS </b>
+										<button type="button" onclick="copyCoreComponentPy()">Copy <i class="fa fa-copy"></i></button>
+									</p>
+									<div class="form-outline">
+										<textarea value="" class="form-control" name="coreComponent" id="coreComponentPy" rows="7" cols="135" style="border:solid 2px green;"></textarea>
+										<label class="form-label" for="coreComponent"></label>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					</div>
+				</div>
+
 		</div>
 	</div>
 	</div>
 	<script async src="{{ url_for('static', filename='js/java/generator.js') }}"></script>
 	<script async src="{{ url_for('static', filename='js/JS/generatorJS.js') }}"></script>
+	<script async src="{{ url_for('static', filename='js/python/generatorPy.js') }}"></script>
 
 	<!--<script async src="{{ url_for('static', filename='js/javaScript/generator.js') }}"></script>-->
 	<script>
@@ -129,6 +176,18 @@
 
 	function copyCoreComponentJS() {
 		let textarea = document.getElementById("coreComponentJS");
+		textarea.select();
+		document.execCommand("copy");
+	}
+
+		function copyStepDefinitionPy() {
+		let textarea = document.getElementById("stepDefinitionPy");
+		textarea.select();
+		document.execCommand("copy");
+	}
+
+	function copyCoreComponentPy() {
+		let textarea = document.getElementById("coreComponentPy");
 		textarea.select();
 		document.execCommand("copy");
 	}
