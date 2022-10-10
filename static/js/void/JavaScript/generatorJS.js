@@ -16,11 +16,9 @@ let sc_closingCurlyParenthesis = "}";
 let dynamicValJS = "args";
 let arrayForInnerMethod = "";
 let GLOBAL_ARRAY = "";
-let GLOBAL_ARRAY_ForSection2JS = "";
 let dynamicValueJS = "args";
 let dynamicValueJS_ = "_args_";
 let CAMEL_CASED_STEP = "";
-let string = "{string}"
 
 
 if (localStorage.getItem("classReferenceJavaScript") == "") {
@@ -48,6 +46,12 @@ classReferenceJavaScript.addEventListener("keyup", event => {
     writeImplementationHere.value = localStorage.getItem("classReferenceJavaScript")
 })
 
+/*
+ * Reference: First layer ->
+ * general: public void this_is_the_first_layer
+ * example: i_am_at_the_application_portal
+ */
+
 function section1JS() {
     let array = localStorage.getItem("featureStepsJS")
                 .trim()
@@ -72,19 +76,10 @@ function section1JS() {
         const step = [keyword.shift(), keyword.join(' ')];
         const stepWithoutSpecialChars = step[1]
                                         .trimStart()
-                                        // .replace(/'([^']+)'/g, '(.+)')
-                                        // .replace(/"([^"]+)"/g, '\\"(.*?)\\"');
-                                        .replace(/'([^']+)'/g, string)
-                                        .replace(/"([^"]+)"/g, string);
-
-        const stepWithoutSpecialCharsForSection2JS = step[1]
-                                        .trimStart()
                                         .replace(/'([^']+)'/g, '(.+)')
                                         .replace(/"([^"]+)"/g, '\\"(.*?)\\"');
 
-
         GLOBAL_ARRAY = stepWithoutSpecialChars;
-        GLOBAL_ARRAY_ForSection2JS = stepWithoutSpecialCharsForSection2JS;
         CAMEL_CASED_STEP = camelize(stepWithoutSpecialChars)
 
         console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
@@ -114,29 +109,23 @@ function section1JS() {
 
 
 function section2JS() {
-    // console.log(`GLOBAL_ARRAY_ForSection2JS: ${GLOBAL_ARRAY_ForSection2JS}`)
+    // console.log(`CAMEL_CASED_STEP: ${CAMEL_CASED_STEP}`)
     // console.log(`GLOBAL_ARRAY: ${GLOBAL_ARRAY}`)
     // console.log(`arrayForInnerMethod: ${arrayForInnerMethod}`)
-    // arrayForInnerMethod = GLOBAL_ARRAY
-    arrayForInnerMethod = GLOBAL_ARRAY_ForSection2JS
+    arrayForInnerMethod = GLOBAL_ARRAY
     let val = camelize(arrayForInnerMethod);
 
     for (let i = 0; i < val.length; i++) {
     val = val.replaceAll(" ", "")
-                                                // .replace('(.+)', dynamicValueJS_)
-                                                // .replace('\\"(.*?)\\"', dynamicValueJS_)
                                                 .replace('(.+)', dynamicValueJS_)
                                                 .replace('\\"(.*?)\\"', dynamicValueJS_)
-
-        console.log(`val section2JS: ${val}`)
     }
 
-    DYNAMIC_VALUE_JAVASCRIPT = 0
+
     let toCalDV = localStorage.getItem("featureStepsJS")
     let noOfDynamicValues = 0
     for (let i = 0; i < toCalDV.length; i++) {
-        // if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
-        if (toCalDV[i] == string) {
+        if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
             noOfDynamicValues = noOfDynamicValues + 1
             DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
         }
