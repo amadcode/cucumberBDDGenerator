@@ -22,6 +22,7 @@ let dynamicValueJS_ = "_args_";
 let CAMEL_CASED_STEP = "";
 let string = "{string}"
 let arrayValueAtIndex = ""
+let static_keyword = "static "
 
 
 if (localStorage.getItem("classReferenceJavaScript") == "") {
@@ -37,14 +38,12 @@ if (localStorage.getItem("featureStepsJS") == "") {
 }
 
 featureStepsJS.addEventListener("keyup", event => {
-    //console.log("inside featureStepsJS")
     localStorage.setItem("featureStepsJS", event.target.value)
     stepDefinitionJS.value = section1JS()
     coreComponentJS.value = section3JS()
 });
 
 classReferenceJavaScript.addEventListener("keyup", event => {
-    //console.log("inside featureStepsJS")
     localStorage.setItem("classReferenceJavaScript", event.target.value)
     writeImplementationHere.value = localStorage.getItem("classReferenceJavaScript")
 })
@@ -56,7 +55,7 @@ function section1JS() {
                 .replace("-", "")
                 .split('\n')
 
-    console.log(`complete array: ${array}`)
+    // console.log(`complete array: ${array}`)
 
     for (let i = 0; i < array.length; i++) {
         let toCalDV = array[i]
@@ -133,7 +132,6 @@ function section2JS() {
     }
 
     DYNAMIC_VALUE_JAVASCRIPT = 0
-    // let toCalDV = localStorage.getItem("featureStepsJS")
     let noOfDynamicValues = 0
     for (let i = 0; i < GLOBAL_ARRAY_ForSection2JS.length; i++) {
         // if (array[i] == "{") {
@@ -149,64 +147,18 @@ function section2JS() {
     return arrayForInnerMethod
 }
 
-
-/*function section2JS() {
-    arrayForInnerMethod = GLOBAL_ARRAY_ForSection2JS.trimStart()
-    let val = camelize(arrayForInnerMethod);
-
-    for (let i = 0; i < val.length; i++) {
-    val = val.replaceAll(" ", "")
-                                                .replace('(.+)', dynamicValueJS_)
-                                                .replace('\\"(.*?)\\"', dynamicValueJS_)
-        //console.log(`val section2JS: ${val}`)
-    }
-
-    DYNAMIC_VALUE_JAVASCRIPT = 0
-    let toCalDV = localStorage.getItem("featureStepsJS")
-    let noOfDynamicValues = 0
-    for (let i = 0; i < toCalDV.length; i++) {
-        if (toCalDV[i] == "{") {
-            noOfDynamicValues = noOfDynamicValues + 1
-            DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-        }
-    }
-    let arguments = generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
-    arrayForInnerMethod = val + sc_openingBracket + arguments + sc_closingBracket
-    //console.log(`section2JS DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-    //console.log(`section2JS arrayForInnerMethod: ${arrayForInnerMethod}`)
-    return arrayForInnerMethod
-}*/
-
 function section3JS() {
-
-    // DYNAMIC_VALUE_JAVASCRIPT = 0
-    //
     let array = localStorage.getItem("featureStepsJS")
                 .trim()
                 .replace("/", "")
                 .replace("-", "")
                 .split('\n')
-
-    // let toCalDV = localStorage.getItem("featureStepsJS")
-    // let noOfDynamicValues = 0
-    // for (let i = 0; i < toCalDV.length; i++) {
-    //     if ((toCalDV[i] == "\"") || toCalDV[i] == "\'") {
-    //         noOfDynamicValues = noOfDynamicValues + 1
-    //         DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
-    //     }
-    // }
-
-
-    //console.log(`HERE DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
-
     for (let i = 0; i < array.length; i++) {
         let toCalDV = array[i]
         arrayValueAtIndex = toCalDV
         console.log(`array${[i]}: ${array[i]}`)
         console.log(`toCalDV${[i]}: ${toCalDV}`)
         console.log(`toCalDV.length: ${array[i].length}`)
-
         let noOfDynamicValues = 0
         for (let i = 0; i < toCalDV.length; i++) {
              console.log(`for loop toCalDV${[i]}: ${toCalDV[i]}`)
@@ -214,17 +166,14 @@ function section3JS() {
                 noOfDynamicValues = noOfDynamicValues + 1
                 DYNAMIC_VALUE_JAVASCRIPT = noOfDynamicValues
                 console.log(`inside for loop array${[i]}: ${array[i]}`)
-
             } else {
                 DYNAMIC_VALUE_JAVASCRIPT = 0
             }
         }
 
     console.log(`DYNAMIC_VALUE_JAVASCRIPT section3JS: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
         const keyword = array[i].trimStart().split(/\s+/);
         const step = [keyword.shift(), keyword.join(' ')];
-
         step[1] = camelize(step[1])
         const stepWithoutSpecialChars =     step[1].trimStart().replaceAll(" ", "")
                                                 .replace('(.+)', dynamicValueJS_)
@@ -233,14 +182,11 @@ function section3JS() {
                                                 .replace(/"([^"]+)"/g, dynamicValueJS_);
         GLOBAL_ARRAY = stepWithoutSpecialChars;
         CAMEL_CASED_STEP = camelize(GLOBAL_ARRAY)
-
-        //console.log(`HERE2 DYNAMIC_VALUE_JAVASCRIPT: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
         array[i] =
-                CAMEL_CASED_STEP
+                static_keyword
+                + CAMEL_CASED_STEP
                 + sc_openingBracket
                 + generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
-                // + genrateArgsJS()
                 + sc_closingBracket + sc_space
                 + sc_openingCurlyParenthesis + sc_space
                 + "\n"
@@ -253,9 +199,6 @@ function section3JS() {
 }
 
 function generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT) {
-
-    //console.log(`noOfDynamicValuesJS when this is called: ${DYNAMIC_VALUE_JAVASCRIPT}`)
-
     let string = ""
     let noValue = ""
     if (DYNAMIC_VALUE_JAVASCRIPT === 0) {
