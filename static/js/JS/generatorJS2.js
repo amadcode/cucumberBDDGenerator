@@ -116,6 +116,7 @@ function section1JS() {
                 + section2JS()
                 + "\n"
                 + sc_closingCurlyParenthesis + sc_closingBracket
+                + ";"
                 + "\n"
         }
     return array.join("\n")
@@ -143,7 +144,7 @@ function section2JS() {
         }
     }
     let arguments = generateArgumentsJS(DYNAMIC_VALUE_JAVASCRIPT)
-    arrayForInnerMethod = val + sc_openingBracket + arguments + sc_closingBracket
+    arrayForInnerMethod = val + sc_openingBracket + arguments + sc_closingBracket + ";"
     return arrayForInnerMethod
 }
 

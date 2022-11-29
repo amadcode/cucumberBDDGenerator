@@ -110,7 +110,8 @@ function generateStepDefinitionMethod() {
 function methodNameGeneratorInnerBodyOfStepDefinition(array) {
     underscoredArray = array.replaceAll(" ", "_")
         .replace(/"([^"]+)"/g, dynamicValue)
-        .replace(/'([^']+)'/g, dynamicValue);
+        .replace(/'([^']+)'/g, dynamicValue)
+        .toLowerCase();
     let noOfDynamicValues = 0
     dynamicValueCount = noOfDynamicValues
     for (let i = 0; i < array.length; i++) {
