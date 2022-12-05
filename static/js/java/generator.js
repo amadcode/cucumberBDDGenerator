@@ -175,6 +175,10 @@ function methodGeneratorInnerStepDefinitionBody_ThirdLayer(array, noOfDynamicVal
     array = camelize(array)
     console.log(`camelArray: ${array}`)
     methodInnerBlock = array.replaceAll(/\s/g, '')
+        // .replaceAll("i", "")
+        // .replaceAll("And", "")
+        // .replaceAll("on", "").replaceAll("On")
+    // utilityMethods.removeGeneralGrammarWords();
     methodInnerBlock = methodInnerBlock
         .replace("/", "")
         .replace("-", "")
